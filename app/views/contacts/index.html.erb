@@ -1,0 +1,8 @@
+<h1>All Records are below </h1>
+
+<% @contacts.each do |contact| %>
+    <h4> <%= contact.name %> </h4> 
+    <h4> <%= contact.email %> </h4> 
+    <h6> <%= contact.created_at %> </h6> </br> 
+
+<% end %>  

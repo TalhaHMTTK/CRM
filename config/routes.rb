@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   resources :clients
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  #devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config.merge(
+    controllers: { sessions: 'admin_users/sessions' }
+  )
   ActiveAdmin.routes(self)
   devise_for :users
+  
+  resources :contacts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
