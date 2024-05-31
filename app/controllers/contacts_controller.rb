@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
 
 
     def show 
-        em = Contact.find(params[:id])
-        @contact =  Contact.where(:email => em.email)
+        user = Contact.find(params[:id])
+        @contact =  Contact.where(:email => user.email)
     end
 end

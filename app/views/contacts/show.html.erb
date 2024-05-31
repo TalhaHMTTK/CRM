@@ -1,6 +1,9 @@
 <h1> All record of when this user is logged in </h1>
 
 <% @contact.each do |contact| %> 
-<h4> <%= contact.email %> </h4> 
-<h4> <%= contact.created_at %></h4>
+<div>
+    <h4> <%= contact.email %> </h4> 
+    <h4> <%= contact.created_at %></h4>
+</div>
+<hr>
 <% end %> 
