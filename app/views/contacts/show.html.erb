@@ -1,9 +1,10 @@
-<h1> All record of when this user is logged in </h1>
+<div class="container mt-5">
+        <h1 class="display-4 mb-4 text-center">All Records of <%= @name %> Logins</h1>
 
-<% @contact.each do |contact| %> 
-<div>
-    <h4> <%= contact.email %> </h4> 
-    <h4> <%= contact.created_at %></h4>
+        <% @contact.each do |contact| %> 
+        <div class="record-card">
+            <h4>Email: <span class="text-primary"><%= contact.email %></span></h4> 
+            <h4>Logged In on: <span class="text-secondary"><%= contact.created_at.strftime("%B %d, %Y %H:%M") %></span></h4>
+        </div>
+        <% end %> 
 </div>
-<hr>
-<% end %> 

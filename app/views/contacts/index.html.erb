@@ -1,11 +1,14 @@
-<h1>Emails who logged in </h1>
+<div class="container mt-5">   
+    <h1 class="display-4 mb-4 text-center">Emails who logged in </h1>
 
-<% @contacts.group_by(&:email).each do |email, contacts| %>
-  <% contact = contacts.first %>
-  <div class="contact">
-    <h4>Email: <%= contact.email %></h4>
-    <h4>Created At: <%= contact.created_at.strftime("%B %d, %Y %H:%M") %></h4>
-    <%= link_to 'Show all details', contact_path(contact) %>
-  </div>
-  <hr>
-<% end %>
+    <% @contacts.group_by(&:email).each do |email, contacts| %>
+    <% contact = contacts.first %>
+    <div class="record-card">
+        <h4>Email: <span class="text-primary"><%= contact.email %></span></h4>
+        <h4>Created At: <span class="text-secondary"><%= contact.created_at.strftime("%B %d, %Y %H:%M") %></span></h4>
+        <%= link_to 'Show all details', contact_path(contact) %>
+    </div>
+    <hr>
+    <% end %>
+</div>
+
