@@ -1,5 +1,11 @@
 <h1>Emails who logged in </h1>
 
-<% @contacts.select("DISTINCT(EMAIL)").each do |contact| %> 
-    <h4> <%= contact.email %> </h4> 
-<% end %>  
+<% @contacts.group_by(&:email).each do |email, contacts| %>
+  <% contact = contacts.first %>
+  <div class="contact">
+    <h4>Email: <%= contact.email %></h4>
+    <h4>Created At: <%= contact.created_at.strftime("%B %d, %Y %H:%M") %></h4>
+    <%= link_to 'Show all details', contact_path(contact) %>
+  </div>
+  <hr>
+<% end %>
